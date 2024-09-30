@@ -1,21 +1,21 @@
 const list = document.getElementById('list');
-const nav = document.getElementById('navbar-nav');
+const navLinks = document.getElementById('navLinks');
 const close = document.getElementById('close');
 
-// Ganti Icon List ketika dikllik
+// Ganti Icon ketika tombol List dikllik
 changeIcon = (icon) => icon.classList.toggle('bi-x-lg');
 
-// Jika Icon List diklik, maka tambahkan kelas .active di .navbar-nav
+// Jika Icon List diklik, maka tambahkan kelas .active di .nav-links
 list.onclick = function()
 {
-  nav.classList.toggle('active');
+  navLinks.classList.toggle('active');
 };
 
 document.addEventListener('click', function(e)
 {
-  if(!list.contains(e.target) && e.target.id !== 'navbar-nav')
+  if(!list.contains(e.target) && e.target.id !== 'navLinks')
   {
-    nav.classList.remove('active');
+    navLinks.classList.remove('active');
     // Jika Navbar sudah tidak aktif, maka kembalikan Icon Close ke List
     close.classList.remove('bi-x-lg'); 
   };
