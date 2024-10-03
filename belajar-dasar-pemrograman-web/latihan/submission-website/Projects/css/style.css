@@ -55,6 +55,7 @@ nav.container {
   align-items: baseline;
   position: fixed;
   background-color: var(--color1);
+  z-index: 99999;
 }
 nav .logo-n-links {
   display: flex;
@@ -72,6 +73,9 @@ nav .nav-logo a {
   -moz-transition: var(--transitionDuration);
   -ms-transition: var(--transitionDuration);
   -o-transition: var(--transitionDuration);
+  opacity: 0;
+  animation: slideTop .5s ease forwards;
+  animation-delay: .2s;
 }
 nav .nav-logo a:hover {
   color: var(--color3);
@@ -88,6 +92,10 @@ nav .nav-links li a {
   -moz-transition: var(--transitionDuration);
   -ms-transition: var(--transitionDuration);
   -o-transition: var(--transitionDuration);
+  opacity: 0;
+  animation: slideTop .5s ease forwards;
+  animation-delay: calc(.2s * var(--i));
+  display: inline-block;
 }
 nav .nav-links li a:hover {
   color: var(--color3);
@@ -102,9 +110,16 @@ nav .nav-extra {
   justify-content: space-between;
   position: relative;
   z-index: 99999;
+  /* gap: 100px; */
 }
+/* nav .nav-extra ul li a {
+  animation: slideLeft 2s ease forwards;
+  animation-delay: calc(.2s * var(--i));
+  opacity: 0;
+} */
 nav .nav-extra ul li a,
 nav .nav-extra ul li button {
+  display: inline-block;
 	background: none;
 	color: inherit;
 	border: none;
@@ -120,16 +135,20 @@ nav .nav-extra ul li button {
   -moz-transition: var(--transitionDuration);
   -ms-transition: var(--transitionDuration);
   -o-transition: var(--transitionDuration);
+  animation: slideLeft 2s ease forwards;
+  animation-delay: calc(.2s * var(--i));
+  opacity: 0;
+  margin-inline: .1vw;
 }
 nav .nav-extra ul li a:hover,
 nav .nav-extra ul li button:hover {
   cursor: pointer;
   color: var(--color3);
-  transform: scale(1.05);
+  /* transform: scale(1.05);
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
-  -o-transform: scale(1.05);
+  -o-transform: scale(1.05); */
 }
 #theme-switch i:last-child {
   display: none;
@@ -162,6 +181,9 @@ nav .nav-extra #list {
 .landing-page .left .big-title {
   font-size: 2vw;
   color: var(--color2);
+  animation: slideBottom 1s ease forwards;
+  animation-delay: .7s;
+  opacity: 0;
 }
 .landing-page .left .big-title h1 span {
   display: inline-block;
@@ -202,6 +224,9 @@ nav .nav-extra #list {
   -moz-transition: var(--transitionDuration);
   -ms-transition: var(--transitionDuration);
   -o-transition: var(--transitionDuration);
+  animation: slideTop1 1s ease forwards;
+  animation-delay: .7s;
+  opacity: 0;
 }
 .landing-page .left .text a:hover {
   color: var(--color3);
@@ -224,6 +249,9 @@ nav .nav-extra #list {
   -moz-transition: color var(--transitionDuration) linear;
   -ms-transition: color var(--transitionDuration) linear;
   -o-transition: color var(--transitionDuration) linear;
+  animation: slideTop1 1s ease forwards;
+  animation-delay: .7s;
+  opacity: 0;
 }
 .landing-page .left .cta a.btn:hover {
   color: var(--color1);
@@ -287,6 +315,9 @@ nav .nav-extra #list {
 .header__image {
   position: relative;
   isolation: isolate;
+  opacity: 0;
+  animation: zoomIn 1s ease forwards;
+  animation-delay: .5s;
 }
 .header__image::before {
   position: absolute;
@@ -312,10 +343,14 @@ nav .nav-extra #list {
   animation: movingBg 2.5s linear infinite;
   -webkit-animation: movingBg 2.5s linear infinite;
   
+  
 
 }
 .header__image img {
   margin-inline: auto;
+  /* opacity: .2;
+  animation: zoomIn 1s ease forwards;
+  animation-delay: 2s; */
 }
 .header__image__card {
   position: absolute;
@@ -442,8 +477,17 @@ footer .social-icon {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+
+}
+footer .social-icon li {
+  transition: var(--transitionDuration);
+}
+footer .social-icon li:hover {
+  /* display: none; */
+  transform: translateY(-10px);
 }
 footer .social-icon li a {
+  display: inline-block;
   color: var(--color2);
   font-size: 1.2rem;
   margin: 0 10px;
@@ -453,13 +497,18 @@ footer .social-icon li a {
   -moz-transition: var(--transitionDuration);
   -ms-transition: var(--transitionDuration);
   -o-transition: var(--transitionDuration);
+  animation: slideLeft .2s ease forwards;
+  animation-delay: calc(.2s * var(--i));
+  opacity: 0;
+  position: relative;
+  z-index: 1000;
 }
-footer .social-icon li a:hover {
-  transform: translateY(-15px);
-  -webkit-transform: translateY(-10px);
-  -moz-transform: translateY(-10px);
-  -ms-transform: translateY(-10px);
-  -o-transform: translateY(-10px);
+footer .social-icon ul li a:hover {
+  /* opacity: 1; */
+  transform: translateY(105px);
+  font-weight: 700;
+  bottom: 20px;
+   /* display: none; */
 }
 footer .social-icon li a {
   display: flex;
@@ -480,6 +529,9 @@ footer .copyright {
   text-align: center;
   margin: 10px 0 10px 0;
   font-size: 1.1rem;
+  animation: slideTop1 1s ease forwards;
+  animation-delay: 1s;
+  opacity: 0;
 }
 
 /* ==> Animations */
@@ -544,12 +596,70 @@ footer .copyright {
     transform: translate(-50%, -50%);
   }
 }
-@keyframes appear {
+
+@keyframes slideRight {
   0% {
-    clip-path: circle(30% at -25% -25%);
+    transform: translateX(-100px);
+    opacity: 0;
   }
   100% {
-    clip-path: circle(150% at 0 0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideTop {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideBottom {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideTop1 {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 
@@ -633,6 +743,7 @@ footer .copyright {
   .landing-page .left .text a {
     text-align: center;
     font-size: 1rem;
+    opacity: 0;
   }
   .landing-page .left .cta {
     margin-inline: auto;
@@ -689,7 +800,7 @@ footer .copyright {
 
 
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 480px) {
   nav.container {
     justify-content: start;
   } 
