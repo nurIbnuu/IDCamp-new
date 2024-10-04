@@ -1,4 +1,4 @@
-/* My Variables */
+/* === My Variables === */
 :root {
   --transitionDuration: .5s;
   --titleColor: #D48E5F;
@@ -11,6 +11,7 @@
   --color2: #818c9f;
   --color3: #eaeaea;
 }
+
 
 *,
 *::before,
@@ -29,7 +30,7 @@ li {
 a {
   text-decoration: none;
 }
-.main-container {
+.largest-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -47,7 +48,7 @@ a {
 }
 
 
-/* --> Nav */
+/* === Nav === */
 nav {
   display: flex;
   justify-content: space-between;
@@ -133,8 +134,8 @@ nav {
 }
 
 
-/* --> Landing Page */
-.landing-page {
+/* === Main Content === */
+.main-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -311,9 +312,7 @@ figure {
 }
 
 
-
-
-/* Footer */
+/* === Footer === */
 footer {
   display: flex;
   justify-content: center;
@@ -378,9 +377,17 @@ footer {
   animation: slideTop2 1s ease forwards;
   animation-delay: 1s;
 }
+.copyright span {
+  cursor: crosshair;
+}
 
-/* ==> Animations */
-/* Image */
+
+
+
+
+
+/* === Animations === */
+/* ==> Image */
 @keyframes movingImage {
   0% {
     transform: translate(17px, 5px);
@@ -425,7 +432,8 @@ footer {
     transform: translate(15px, 16px);
   }
 }
-/* Footer */
+
+/* ==> Footer */
 @keyframes animateWave {
   0% {
     background-position-x: 1000px;
@@ -434,7 +442,8 @@ footer {
     background-position-x: 0px;
   }
 }
-/* Landing */
+
+/* ==> Landing Page */
 @keyframes slideTop1 {
   0% {
     transform: translateY(100px);
@@ -498,8 +507,10 @@ footer {
 
 
 
-/* ==> MEDIA QUERIES */
-@media screen and (min-width: 2000px) {
+
+
+/* === Media Queries ===*/
+@media screen and (min-width: 2000px) { /* Lebih dari 2000px */
   .right img {
     max-width: 1000px;
     max-height: 1000px;
@@ -507,12 +518,11 @@ footer {
 }
 
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 950px) { /* Kurang dari 950px */
   html {
     font-size: 90%;
   }
 
-  /* --> Nav */
   .nav-links {
     display: flex;
     align-items: center;
@@ -521,10 +531,11 @@ footer {
     top: -6000px;
     z-index: 9999;
     background-color:var(--color1);
+    width: 100%;
     margin-left: -3.2rem;
     border-bottom: 4px solid var(--color2);
     transition: .2s;
-}
+  }
   .nav-links.active {
     top: 0px;
   }
@@ -537,14 +548,11 @@ footer {
     display: inline-block;
   }
 
-
-  /* Landing Page */
-  .landing-page {
+  .main-content {
     flex-direction: column-reverse;
     justify-content: start;
     align-items: center;
     gap: 5vh;
-    /* margin-top: 20%; */
   }
   .big-title {
     display: flex;
@@ -556,7 +564,6 @@ footer {
     font-size: 1.5rem;
   }
   .big-title span {
-    /* margin-top: -40px; */
     font-size: 3rem;
   }
   .text a {
@@ -573,62 +580,33 @@ footer {
     font-size: 1rem;
   }
   .right img {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    width: 1vw;
-    height: 1vw;
-    max-width: 680px;
-    max-height: 680px;
-    /* margin-left: 10px; */
-  }
-  .header__container {
-    margin-right: 4vw;
-  }
-  .card-top {
-    top: 15%;
-    z-index: 2;
-    left: 17rem;
-    /* transform: translate(-50%, -100%); */
-    font-size: 2rem;
-  }
-  .card-bottom {
-    top: 32%;
-    z-index: 2;
-    left: 6rem;
-    font-size: 1.5rem;
-    /* transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%); */
-  }
-
-  /* --> Nav */
-  nav .nav-links {
-    width: 100%;
-  }
-
-  .landing-page .right img {
     width: 1vw;
     height: 1vw;
     min-width: 480px;
     min-height: 480px;
     margin-right: 20px;
   }
+  .card-top {
+    top: 15%;
+    left: 17rem;
+    z-index: 2;
+    font-size: 2rem;
+  }
+  .card-bottom {
+    top: 32%;
+    left: 6rem;
+    z-index: 2;
+    font-size: 1.5rem;
+  }
 }
 
 
-
-@media screen and (max-width: 480px) {
-  nav.container {
-    justify-content: start;
-  } 
-  nav .nav-logo a {
+@media screen and (max-width: 480px) { /* Kurang dari 480px */
+  .nav-logo a {
     font-size: 5vw;
   }
-  nav .nav-extra ul li a,
-  nav .nav-extra ul li button {
+  .nav-extra a,
+  .nav-extra button {
     font-size: 3vw;
   }
 }
