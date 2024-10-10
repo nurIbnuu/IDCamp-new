@@ -620,3 +620,76 @@ Kapan Menggunakan try:
 
     Ketika ada kemungkinan kesalahan: Misalnya saat berurusan dengan input pengguna, parsing data, atau melakukan operasi yang tidak dapat diprediksi.
     Menangani kesalahan yang dapat ditangkap: Jika kamu tahu bahwa ada risiko kesalahan yang dapat terjadi, menggunakan try...catch membantu menjaga program tetap berjalan dengan baik.
+
+
+
+
+    // Kamis, 10 Oktober 2024
+    Untuk melengkapi fungsi `categorizeNumber` sesuai dengan spesifikasi yang diberikan, kita bisa mengikuti langkah-langkah berikut:
+
+1. Memeriksa apakah input adalah bilangan, jika tidak, kita akan melempar (throw) error.
+2. Jika input adalah bilangan negatif, kita langsung mengembalikan nilai "Negatif".
+3. Jika input adalah nol, kita mengembalikan "Nol".
+4. Memeriksa apakah input bilangan prima.
+5. Memeriksa apakah input bilangan genap atau ganjil.
+
+Berikut adalah implementasi lengkap dari fungsi tersebut:
+
+```javascript
+function isPrime(number) {
+  if (number < 2) return false; // Bilangan prima harus lebih dari 1
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function categorizeNumber(input) {
+  if (typeof input !== 'number') {
+    throw new Error("Input harus berupa bilangan bulat");
+  }
+
+  if (input < 0) {
+    return "Negatif";
+  }
+
+  if (input === 0) {
+    return "Nol";
+  }
+
+  if (isPrime(input)) {
+    return "Prima";
+  }
+
+  if (input % 2 === 0) {
+    return "Genap";
+  } else {
+    return "Ganjil";
+  }
+}
+
+// Contoh
+console.log(categorizeNumber(15)); // Output: "Ganjil"
+console.log(categorizeNumber(12)); // Output: "Genap"
+console.log(categorizeNumber(17)); // Output: "Prima"
+console.log(categorizeNumber(0));  // Output: "Nol"
+console.log(categorizeNumber(-5)); // Output: "Negatif"
+
+try {
+  categorizeNumber('abc');
+} catch (error) {
+  console.log(error.message); // Output: "Input harus berupa bilangan bulat"
+}
+```
+
+### Penjelasan:
+1. Fungsi `isPrime()` memeriksa apakah suatu bilangan adalah bilangan prima. Jika angka kurang dari 2, maka bukan bilangan prima. Selanjutnya, loop memeriksa apakah ada pembagi selain 1 dan dirinya sendiri.
+2. Dalam fungsi `categorizeNumber()`, pertama-tama kita memeriksa apakah `input` adalah tipe `number`. Jika tidak, kita melemparkan error dengan pesan "Input harus berupa bilangan bulat".
+3. Jika input negatif, kita kembalikan "Negatif".
+4. Jika input adalah nol, kita kembalikan "Nol".
+5. Jika input bilangan prima, kita kembalikan "Prima".
+6. Jika tidak, kita memeriksa apakah input genap atau ganjil dan mengembalikan nilai yang sesuai.
+
+Fungsi ini memenuhi semua syarat yang diminta dalam soal.
