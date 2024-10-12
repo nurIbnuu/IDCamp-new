@@ -693,3 +693,58 @@ try {
 6. Jika tidak, kita memeriksa apakah input genap atau ganjil dan mengembalikan nilai yang sesuai.
 
 Fungsi ini memenuhi semua syarat yang diminta dalam soal.
+
+
+
+
+// Sabtu, 12 Oktober 2024
+Modularisasi dalam JavaScript adalah cara untuk memecah kode menjadi beberapa file terpisah (modul) agar lebih terstruktur dan mudah dikelola. Setiap modul dapat memiliki fungsionalitas tertentu, seperti fungsi, variabel, atau kelas, yang dapat digunakan di bagian lain dari aplikasi dengan cara diekspor (export) dari modul tersebut dan diimpor (import) di modul lain.
+
+### Cara Kerja `export`:
+
+1. **Export Named (Bernama)**
+   Pada export bernama, kita bisa mengekspor beberapa elemen dari satu file. Elemen ini bisa berupa fungsi, variabel, atau kelas, dan bisa diimpor di file lain dengan nama yang sama.
+   
+   **Contoh:**
+   ```javascript
+   // utils.js
+   export const add = (a, b) => a + b;
+   export const subtract = (a, b) => a - b;
+   ```
+
+   Di sini, `add` dan `subtract` diekspor dari file `utils.js`.
+
+2. **Export Default**
+   Dengan export default, kita hanya bisa mengekspor satu nilai dari modul. Export default berguna ketika modul hanya mengekspor satu hal utama.
+   
+   **Contoh:**
+   ```javascript
+   // calculator.js
+   const multiply = (a, b) => a * b;
+   export default multiply;
+   ```
+
+   Di sini, hanya `multiply` yang diekspor sebagai nilai default.
+
+### Cara Menggunakan `import`:
+
+Setelah modul diekspor, kita bisa mengimpornya ke file lain menggunakan `import`.
+
+- **Mengimpor Named Exports:**
+  ```javascript
+  // main.js
+  import { add, subtract } from './utils.js';
+
+  console.log(add(5, 3)); // Output: 8
+  console.log(subtract(5, 3)); // Output: 2
+  ```
+
+- **Mengimpor Default Exports:**
+  ```javascript
+  // main.js
+  import multiply from './calculator.js';
+
+  console.log(multiply(4, 3)); // Output: 12
+  ```
+
+Dengan modularisasi, kamu bisa menjaga agar kode tetap terorganisir dan mudah dipelihara.
