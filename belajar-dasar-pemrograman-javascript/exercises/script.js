@@ -748,3 +748,60 @@ Setelah modul diekspor, kita bisa mengimpornya ke file lain menggunakan `import`
   ```
 
 Dengan modularisasi, kamu bisa menjaga agar kode tetap terorganisir dan mudah dipelihara.
+
+// Minggu, 13 Oktober 2024
+Dalam JavaScript, **module** digunakan untuk memisahkan kode menjadi bagian-bagian yang lebih kecil, sehingga lebih mudah dipelihara dan digunakan kembali. Modul juga membantu mengelola dependensi antar bagian kode.
+
+### Cara Menggunakan Module JavaScript
+
+1. **Exporting**: Modul JavaScript memungkinkan kita untuk mengekspor fungsi, variabel, atau kelas dari sebuah file, sehingga dapat digunakan di file lain.
+   
+   Contoh (file `mathModule.js`):
+   ```javascript
+   // Ekspor beberapa fungsi
+   export function add(a, b) {
+       return a + b;
+   }
+
+   export function subtract(a, b) {
+       return a - b;
+   }
+   ```
+
+2. **Importing**: Untuk menggunakan kode yang diekspor dari file lain, kita perlu mengimpor fungsinya.
+
+   Contoh (file `main.js`):
+   ```javascript
+   // Impor fungsi dari modul lain
+   import { add, subtract } from './mathModule.js';
+
+   console.log(add(5, 3));       // Output: 8
+   console.log(subtract(5, 3));  // Output: 2
+   ```
+
+### Default Export
+Kamu juga bisa mengekspor satu nilai sebagai default, yang dapat diimpor tanpa menggunakan nama kurung kurawal `{}`.
+
+Contoh (file `greetModule.js`):
+```javascript
+export default function greet(name) {
+    return `Hello, ${name}!`;
+}
+```
+
+Di file lain, kita bisa mengimpornya seperti ini:
+
+```javascript
+import greet from './greetModule.js';
+
+console.log(greet('Ibnu'));  // Output: Hello, Ibnu!
+```
+
+### Catatan:
+- **Module** hanya bisa digunakan jika kamu menjalankan JavaScript dalam lingkungan yang mendukung modul, seperti di browser modern atau dengan menggunakan Node.js. Jika menggunakan di browser, pastikan kamu menyertakan `type="module"` dalam tag `<script>` di HTML:
+  
+  ```html
+  <script type="module" src="main.js"></script>
+  ```
+
+Apakah Ibnu ingin mencoba latihan membuat modul sederhana?
