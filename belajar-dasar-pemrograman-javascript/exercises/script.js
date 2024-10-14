@@ -805,3 +805,105 @@ console.log(greet('Ibnu'));  // Output: Hello, Ibnu!
   ```
 
 Apakah Ibnu ingin mencoba latihan membuat modul sederhana?
+
+
+// Senin, 14 Oktober 2024
+Modularisasi dalam JavaScript dengan menggunakan ECMAScript Modules (ESM) memungkinkan Anda untuk membagi kode menjadi bagian-bagian yang lebih kecil dan terpisah, membuatnya lebih mudah untuk dikelola dan dipelihara. Berikut adalah penjelasan dan contoh bagaimana menggunakan ESM:
+
+### Apa itu ESM?
+ECMAScript Modules adalah cara resmi untuk mendefinisikan modul dalam JavaScript. Dengan ESM, Anda dapat mengekspor fungsi, objek, atau nilai dari satu file dan mengimpornya ke file lain.
+
+### Struktur Dasar ESM
+
+1. **Menentukan Modul**: Anda perlu menggunakan atribut `type="module"` di tag `<script>` saat menyertakan file JavaScript di HTML.
+
+2. **Ekspor**: Anda dapat mengekspor variabel, fungsi, atau kelas menggunakan kata kunci `export`.
+
+3. **Impor**: Anda dapat mengimpor modul menggunakan kata kunci `import`.
+
+### Contoh Penggunaan ESM
+
+#### 1. Membuat File Modul
+
+Buat file bernama `math.js`:
+
+```javascript
+// math.js
+export function tambah(a, b) {
+    return a + b;
+}
+
+export function kurang(a, b) {
+    return a - b;
+}
+```
+
+#### 2. Mengimpor Modul di File Lain
+
+Buat file bernama `main.js`:
+
+```javascript
+// main.js
+import { tambah, kurang } from './math.js';
+
+const a = 5;
+const b = 3;
+
+console.log(`Hasil penjumlahan: ${tambah(a, b)}`); // Hasil penjumlahan: 8
+console.log(`Hasil pengurangan: ${kurang(a, b)}`); // Hasil pengurangan: 2
+```
+
+#### 3. Menyertakan Modul dalam HTML
+
+Buat file HTML bernama `index.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modularisasi ESM</title>
+</head>
+<body>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
+```
+
+### Penjelasan
+
+- **Ekspor**: Di `math.js`, kita mengekspor dua fungsi, `tambah` dan `kurang`.
+- **Impor**: Di `main.js`, kita mengimpor kedua fungsi tersebut dan menggunakannya untuk melakukan operasi.
+- **HTML**: Di file HTML, kita menyertakan `main.js` dengan atribut `type="module"`.
+
+### Kelebihan ESM
+- **Organisasi Kode**: Membuat kode lebih terstruktur dan mudah dipahami.
+- **Reuse**: Modul dapat digunakan kembali di berbagai bagian proyek atau di proyek lain.
+- **Pengelolaan Dependensi**: Memudahkan pengelolaan dependensi antar modul.
+
+Jika Anda memiliki pertanyaan lebih lanjut tentang ESM atau ingin tahu tentang topik lain, silakan beri tahu!
+
+
+Penggunaan `./math.js` versus `math.js` dalam modul JavaScript (ESM) sebenarnya mengacu pada cara browser atau lingkungan JavaScript mengidentifikasi lokasi file modul tersebut. Berikut penjelasannya:
+
+1. **`./math.js`**:
+   - Tanda `./` menunjukkan bahwa file `math.js` berada di **direktori yang sama** dengan file yang melakukan impor.
+   - Ini adalah **relative path** (jalur relatif), yang berarti Anda mengarahkan browser atau Node.js untuk mencari file di lokasi relatif terhadap file yang mengimpor modul tersebut.
+   - Digunakan ketika file yang diimpor ada dalam direktori yang sama atau subdirektori dari file yang mengimpor.
+   
+   **Contoh**: Jika file `main.js` dan `math.js` berada di folder yang sama, kita menggunakan `./math.js`.
+
+2. **`math.js` (tanpa `./`)**:
+   - Jika Anda menulis `import { tambah } from 'math.js';` tanpa `./`, browser atau Node.js akan menganggap `math.js` sebagai **module atau library yang berasal dari node_modules** atau module yang diinstal dari package manager (seperti npm).
+   - Ini adalah **module resolution** default yang digunakan untuk mengimpor modul dari library eksternal.
+   - Misalnya, jika Anda menulis `import React from 'react';`, itu berarti Anda mengimpor `React` dari **package/library** yang sudah ada, bukan dari file lokal.
+
+### Mengapa harus menggunakan `./`?
+Dalam contoh `import { tambah } from './math.js';`, kita menggunakan `./` karena kita ingin mengimpor file **lokal** yang berada di lokasi yang sama dengan file `main.js`. Tanpa `./`, JavaScript akan mencoba mencari `math.js` di direktori `node_modules` atau package eksternal, yang akan menyebabkan kesalahan jika tidak ditemukan.
+
+### Kesimpulan:
+- Gunakan `./` ketika Anda mengimpor modul dari **file lokal**.
+- Jangan gunakan `./` ketika Anda mengimpor modul dari **library eksternal**.
+
+Apakah penjelasan ini membantu menjawab pertanyaanmu?
