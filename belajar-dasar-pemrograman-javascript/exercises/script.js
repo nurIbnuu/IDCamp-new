@@ -907,3 +907,130 @@ Dalam contoh `import { tambah } from './math.js';`, kita menggunakan `./` karena
 - Jangan gunakan `./` ketika Anda mengimpor modul dari **library eksternal**.
 
 Apakah penjelasan ini membantu menjawab pertanyaanmu?
+
+Dalam ECMAScript Modules (ESM), ada dua jenis ekspor utama: **`export named`** (ekspor bernama) dan **`export default`** (ekspor default). Keduanya digunakan untuk mengekspor kode dari modul, tetapi cara penggunaannya berbeda. Berikut penjelasannya:
+
+### 1. **`export named` (Ekspor Bernama)**
+Ekspor bernama memungkinkan Anda mengekspor beberapa fungsi, variabel, atau kelas dari satu modul, dan saat mengimpornya, Anda harus menggunakan nama yang sama seperti saat diekspor.
+
+#### Contoh `export named`
+
+**math.js:**
+
+```javascript
+// Ekspor bernama beberapa fungsi
+export function tambah(a, b) {
+    return a + b;
+}
+
+export function kurang(a, b) {
+    return a - b;
+}
+```
+
+**main.js:**
+
+```javascript
+// Impor fungsi-fungsi dengan nama yang sama seperti yang diekspor
+import { tambah, kurang } from './math.js';
+
+console.log(tambah(5, 3)); // 8
+console.log(kurang(5, 3)); // 2
+```
+
+#### Ciri-ciri `export named`:
+- Anda dapat mengekspor lebih dari satu hal (fungsi, variabel, kelas) dari satu file.
+- Saat mengimpornya, Anda harus menggunakan **nama yang sama** seperti saat diekspor.
+- Anda juga bisa mengubah nama saat impor dengan menggunakan kata kunci `as`.
+
+**Contoh mengganti nama saat impor:**
+
+```javascript
+import { tambah as penjumlahan } from './math.js';
+
+console.log(penjumlahan(5, 3)); // 8
+```
+
+### 2. **`export default` (Ekspor Default)**
+Ekspor default digunakan ketika Anda hanya ingin mengekspor **satu nilai utama** dari sebuah modul, misalnya sebuah fungsi utama, kelas, atau variabel. Modul yang diekspor sebagai default tidak memerlukan nama ketika diimpor, dan Anda bisa memberi nama sesuka hati saat mengimpornya.
+
+#### Contoh `export default`
+
+**calculator.js:**
+
+```javascript
+// Ekspor default satu fungsi
+export default function kali(a, b) {
+    return a * b;
+}
+```
+
+**main.js:**
+
+```javascript
+// Impor ekspor default tanpa harus menggunakan nama yang diekspor
+import kali from './calculator.js';
+
+console.log(kali(5, 3)); // 15
+```
+
+#### Ciri-ciri `export default`:
+- Hanya bisa mengekspor **satu hal** sebagai ekspor default dalam satu modul.
+- Saat mengimpornya, Anda **tidak perlu** menggunakan nama yang sama seperti yang diekspor. Nama bisa dipilih sesuai keinginan.
+- Biasanya digunakan untuk mengekspor fungsi atau kelas utama dari modul.
+
+### Kombinasi `export named` dan `export default`
+Anda bisa menggabungkan `export named` dan `export default` dalam modul yang sama.
+
+**math.js:**
+
+```javascript
+export default function bagi(a, b) {
+    return a / b;
+}
+
+export function tambah(a, b) {
+    return a + b;
+}
+
+export function kurang(a, b) {
+    return a - b;
+}
+```
+
+**main.js:**
+
+```javascript
+import bagi, { tambah, kurang } from './math.js';
+
+console.log(bagi(10, 2)); // 5
+console.log(tambah(5, 3)); // 8
+console.log(kurang(5, 3)); // 2
+```
+
+### Kesimpulan:
+- **`export named`** memungkinkan ekspor banyak hal dan mengimpor harus menggunakan nama yang sama (atau menggunakan `as` untuk mengganti nama).
+- **`export default`** digunakan untuk mengekspor satu nilai utama dari modul, dan nama bisa diubah saat impor.
+  
+Apakah penjelasan ini cukup jelas untukmu?
+
+
+
+// Selasa, 15 Oktober 2024
+Berikut adalah rangkuman dari semua materi yang telah disampaikan di atas tentang **OOP (Object-Oriented Programming)** dan konsep **instance** dalam JavaScript:
+
+1. **Class** adalah blueprint atau cetak biru yang mendefinisikan properti dan metode untuk objek. Contohnya, **class Mobil** mendefinisikan properti seperti `merek` dan `warna`, serta metode seperti `jalan()`.
+
+2. **Instance** adalah objek nyata yang dibuat berdasarkan class. Instance adalah pengimplementasian atau penerapan dari class. Untuk membuat instance, kita menggunakan keyword `new`. Contohnya, `const mobilBaru = new Mobil("Toyota", "Merah")` membuat instance dari class **Mobil**.
+
+3. **Constructor** adalah metode khusus dalam class yang otomatis dijalankan saat instance dibuat. Fungsi utamanya adalah menginisialisasi properti dari objek yang dibuat.
+
+4. **Encapsulation** membatasi akses ke properti dan metode dari objek, biasanya untuk melindungi data atau mengendalikan bagaimana data bisa diakses atau diubah. Ini bisa dilakukan dengan menggunakan private field seperti `#kecepatan` di JavaScript.
+
+5. **Inheritance** adalah proses dimana sebuah class mewarisi properti dan metode dari class lain. Contohnya, class **SepedaMotor** mewarisi class **Kendaraan**, sehingga bisa menggunakan metode yang ada di class **Kendaraan**.
+
+6. **Polymorphism** adalah kemampuan untuk menggunakan metode yang sama dengan perilaku berbeda pada class turunan. Contohnya, method `suara()` pada class **Kucing** akan menghasilkan suara yang berbeda dari method `suara()` pada class **Hewan**.
+
+7. **Instance = Pengimplementasian atau penerapan class**. Saat kita membuat instance dari sebuah class, kita sedang menciptakan objek nyata yang didasarkan pada blueprint (class) tersebut.
+
+Itu adalah konsep dasar dari OOP dalam JavaScript, serta penjelasan mudah tentang apa itu **instance**. Jika ada pertanyaan lebih lanjut, kamu bisa bertanya lagi!
