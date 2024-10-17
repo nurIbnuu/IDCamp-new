@@ -1034,3 +1034,238 @@ Berikut adalah rangkuman dari semua materi yang telah disampaikan di atas tentan
 7. **Instance = Pengimplementasian atau penerapan class**. Saat kita membuat instance dari sebuah class, kita sedang menciptakan objek nyata yang didasarkan pada blueprint (class) tersebut.
 
 Itu adalah konsep dasar dari OOP dalam JavaScript, serta penjelasan mudah tentang apa itu **instance**. Jika ada pertanyaan lebih lanjut, kamu bisa bertanya lagi!
+
+
+
+
+
+
+// --------------------------------
+Wednesday, October 17, 2024
+
+Pengantar Menyelami Dunia OOP
+Berikut adalah ringkasan penting dan konsep utama dari pengantar Object-Oriented Programming (OOP):
+
+### 1. **Mengapa Belajar Paradigma Pemrograman?**
+   Setiap paradigma pemrograman menawarkan cara berbeda untuk menyelesaikan masalah. Memahami beberapa paradigma, seperti OOP dan functional programming, memberi kita fleksibilitas untuk memilih pendekatan yang paling cocok untuk setiap situasi.
+
+### 2. **Apa itu Object-Oriented Programming (OOP)?**
+   OOP adalah paradigma pemrograman yang berfokus pada objek. Setiap objek terdiri dari **properti** (data/atribut) dan **metode** (fungsi/aksi). OOP memungkinkan kita untuk membuat kode yang lebih terstruktur, modular, dan mudah dipelihara.
+
+### 3. **Konsep Inti OOP:**
+   - **Class**: Template atau blueprint untuk membuat objek.
+   - **Object**: Instance dari sebuah class. Memiliki properti dan metode.
+   - **Encapsulation (Enkapsulasi)**: Menyembunyikan detail internal objek dan hanya menunjukkan fitur penting melalui interface yang jelas.
+   - **Inheritance (Pewarisan)**: Kemampuan untuk mewarisi properti dan metode dari class lain, sehingga dapat mengurangi pengulangan kode.
+   - **Polymorphism (Polimorfisme)**: Kemampuan untuk memanggil metode yang sama dengan cara yang berbeda tergantung pada class yang memanggilnya.
+   - **Abstraction (Abstraksi)**: Menyederhanakan kompleksitas dengan hanya menunjukkan detail yang relevan dan menyembunyikan detail yang tidak perlu.
+
+### 4. **Properti dan Method dalam Object dan Class**
+   - **Properti**: Atribut yang menjelaskan karakteristik sebuah objek.
+   - **Metode**: Fungsi yang terkait dengan objek, yang mendefinisikan aksi yang dapat dilakukan oleh objek.
+
+### 5. **Membuat Object dan Class**
+   Ada dua cara umum untuk membuat class di JavaScript:
+   - **Constructor Function**: Cara tradisional untuk membuat class sebelum ES6.
+   - **ES6 Class**: Cara baru dan lebih mudah untuk membuat class, diperkenalkan pada ES6.
+
+### 6. **Enkapsulasi melalui Access Modifier**
+   Dalam OOP, kita dapat mengontrol akses terhadap properti dan metode objek menggunakan **access modifier** (seperti `private`, `protected`, dan `public`). Ini membantu menyembunyikan data dan mencegah manipulasi data secara langsung.
+
+### 7. **Inheritance dan Prototype-Chain**
+   - **Inheritance (Pewarisan)**: Memungkinkan sebuah class (SubClass) mewarisi properti dan metode dari class lain (SuperClass). Dalam JavaScript, ini dapat dilakukan melalui **ES6 Class** atau **prototype inheritance**.
+   - **Prototype-Chain**: Mekanisme di JavaScript di mana objek dapat mewarisi properti dan metode dari prototype parent-nya.
+
+### 8. **Constructor dan Method Overriding**
+   - **Constructor Overriding**: SubClass dapat memiliki constructor sendiri yang menggantikan constructor dari SuperClass.
+   - **Method Overriding**: SubClass juga dapat menggantikan metode yang diwarisi dari SuperClass dengan metode yang baru sesuai kebutuhan.
+
+### 9. **Object Composition**
+   Object composition memungkinkan kita untuk menyusun objek yang kompleks dari objek yang lebih sederhana. Ini sering digunakan sebagai alternatif inheritance untuk menghindari hierarki class yang terlalu dalam.
+
+Dengan mempelajari OOP, kita dapat menulis kode yang lebih terstruktur, modular, dan mudah dirawat.
+
+
+
+----------------------------------------------------------------
+Berikut adalah ringkasan dari topik **Paradigma Pemrograman**:
+
+### 1. **Definisi Paradigma Pemrograman**:
+   Paradigma pemrograman adalah gaya atau pendekatan yang digunakan programmer dalam menulis program. Paradigma ini memberikan panduan dan cara pandang unik dalam menyelesaikan masalah.
+
+### 2. **Pentingnya Memahami Paradigma Pemrograman**:
+   - **Optimalisasi Solusi**: Setiap paradigma menawarkan cara berbeda untuk menyelesaikan masalah, sehingga pemahaman yang baik dapat membantu menemukan solusi yang optimal.
+   - **Kualitas Kode**: Menulis kode sesuai paradigma menghasilkan kode yang lebih bersih, terstruktur, dan dapat digunakan kembali (reusability).
+   - **Kolaborasi yang Lebih Mudah**: Paradigma menyediakan pedoman yang sama untuk tim, meminimalkan miskomunikasi dalam proyek.
+
+### 3. **Paradigma Bukanlah Aturan Kaku**:
+   Paradigma pemrograman bukanlah aturan yang harus diikuti secara kaku, melainkan panduan yang memudahkan penulisan program.
+
+### 4. **Jenis Paradigma Pemrograman**:
+   Ada beberapa jenis paradigma, seperti:
+   - **Imperative**
+   - **Object-Oriented (OOP)**
+   - **Procedural**
+   - **Functional**
+
+Namun, modul ini fokus pada **Object-Oriented Programming (OOP)**, yang memberikan pandangan bahwa masalah bisa diselesaikan melalui pendekatan berbasis objek.
+
+### 5. **Fokus pada OOP**:
+   Dengan paradigma OOP, semua orang di proyek bisa bekerja dengan pemahaman dan pendekatan yang sama, sehingga mengurangi risiko miskomunikasi.
+
+Apakah konsep ini sudah jelas, Ibnu?
+
+---------
+Paradigma Berbasis Objek
+Berikut adalah ringkasan dari topik **Paradigma Berbasis Objek (Object-Oriented Programming/OOP)**:
+
+### 1. **Pengertian OOP**:
+   OOP adalah paradigma pemrograman yang berfokus pada objek. Setiap objek dalam program memiliki **property** (atribut) dan **method** (perilaku). Objek berinteraksi satu sama lain untuk menyelesaikan tugas.
+
+### 2. **Objek dan Class**:
+   - **Object**: Bentuk nyata dari suatu entitas yang memiliki property dan method.
+   - **Class**: Cetak biru (blueprint) yang digunakan untuk membuat objek. Class membantu dalam menciptakan entitas yang kompleks secara efektif.
+   - Contoh: Jika kita punya dua kucing, "Ziggy" dan "Garfield", keduanya dapat dibuat sebagai objek dengan properti seperti nama, warna, berat badan, dan perilaku.
+
+### 3. **Constructor Function (Pre-ES6)**:
+   Sebelum adanya ES6, objek dan class dibuat menggunakan **constructor function**.
+   - Contoh:
+     ```javascript
+     function Person(name, age) {
+       this.name = name;
+       this.age = age;
+     }
+     Person.prototype.eat = function() {
+       console.log(`${this.name} is eating`);
+     }
+     ```
+   - **Prototype**: Konsep fundamental yang memungkinkan pewarisan sifat dan method antar objek. Setiap objek memiliki properti tersembunyi bernama `[[Prototype]]`.
+
+### 4. **ES6 Class**:
+   ES6 memperkenalkan cara yang lebih mudah dan modern untuk membuat objek menggunakan class. Ini serupa dengan bahasa berbasis class lainnya seperti Java dan C++.
+   - Contoh:
+     ```javascript
+     class Person {
+       constructor(name, age) {
+         this.name = name;
+         this.age = age;
+       }
+       eat() {
+         console.log(`${this.name} is eating`);
+       }
+     }
+     const person1 = new Person('Alice', 30);
+     const person2 = new Person('Bob', 25);
+     ```
+   - **Class sebagai Syntactic Sugar**: Meskipun ES6 mendukung class, JavaScript tetap berbasis prototype. Class di JavaScript hanya merupakan **syntactic sugar** dari constructor function.
+
+### 5. **Kesimpulan**:
+   Pemahaman tentang objek dan class sangat penting dalam OOP. Dengan adanya ES6, membuat objek lebih mudah dan intuitif, khususnya bagi programmer yang terbiasa dengan bahasa berbasis class.
+
+Materi selanjutnya akan membahas lebih dalam tentang konsep-konsep penting dalam OOP seperti inheritance, encapsulation, dan lainnya.
+
+1. Latihan Membuat Class dan Object
+class Animal {
+  cunstructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  speak() {
+    console.log('Animal is making a sound');
+  }
+}
+
+class Dog extends Animal {
+  bark() {
+    console.log('Dog is barking');
+  }
+}
+
+const newDog = new Dog('Dogi', 2);
+newDog.speak();
+newDog.bark();
+
+
+2. Latihan Menggunakan Constructor dan Method
+class Car {
+  constructor(brand, model, year, fuelType) {
+    this.brand = brand;
+    this.model = model;
+    this.year = year;
+    this.fuelType = fuelType;
+  }
+  
+  startEngine() {
+    console.log(`The engine of ${this.brand} ${this.model} is starting`)
+  }
+  
+    stopEngine() {
+    console.log(`The engine of ${this.brand} ${this.model} is stop. This Fuel Type is ${this.fuelType}`)
+  }
+}
+
+const myCar = new Car('Toyota', 'Camry', 2024, 'Diesel');
+
+myCar.startEngine();
+myCar.stopEngine();
+
+3. Latihan Membuat Subclass dengan Method Tambahan
+class Phone {
+  constructor(brand, model) {
+    this.brand = brand;
+    this.model = model;
+  }
+  
+  makeCall() {
+    console.log(`Call from ${this.brand} ${this.model} to you`);
+  }
+}
+
+class SmartPhone extends Phone {
+  constructor(brand, model, os) {
+    super(brand, model);
+    this.os = os;
+  }
+  
+  installApp(app) {
+    console.log(`Installing ${app} in ${this.brand} ${this.model} with os ${this.os}`);
+  }
+}
+
+const myPhone = new SmartPhone('Apple', 'Iphone 14 Pro Max', 'iOS');
+myPhone.makeCall();
+myPhone.installApp('Telegram');
+
+
+
+
+
+
+
+4. Latihan Menggunakan Inheritance dan Method Overriding
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  introduce() {
+    return `Hello my name is ${this.name}. I'm ${this.age} years old.`; // Menggunakan return
+  }
+}
+
+class Student extends Person {
+  constructor(name, age, job) {
+    super(name, age);
+    this.job = job;
+  }
+  
+  introduce() {
+    return `${super.introduce()} I'm a ${this.job}.`; // Sekarang kita bisa menggabungkan output
+  }
+}
+
+const aboutMe = new Student('Ibnu', 18, 'Student');
+console.log(aboutMe.introduce()); // Output: "Hello my name is Ibnu. I'm 18 years old. I'm a Student."
