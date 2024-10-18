@@ -1269,3 +1269,375 @@ class Student extends Person {
 
 const aboutMe = new Student('Ibnu', 18, 'Student');
 console.log(aboutMe.introduce()); // Output: "Hello my name is Ibnu. I'm 18 years old. I'm a Student."
+
+
+
+
+
+-----------------------------
+Jumat, 18/10/2020
+
+Penjelasan yang Anda berikan sangat bagus dan sudah mencakup konsep polymorphism dengan detail. Dalam pemrograman berorientasi objek (OOP), polymorphism memungkinkan kita untuk menggunakan satu interface umum untuk berbagai bentuk (implementasi) yang berbeda. Dalam hal ini, method `charging()` di SuperClass `SmartPhones` dapat diubah atau di-override oleh SubClass, seperti `Android`, dengan implementasi yang lebih spesifik.
+
+Selain itu, konsep overriding juga dijelaskan dengan baik, baik pada constructor maupun method. Overriding constructor memungkinkan kita untuk menambah properti baru di SubClass, sementara overriding method memberikan fleksibilitas untuk mengubah perilaku method yang diwariskan dari SuperClass.
+
+Jika Anda memiliki pertanyaan lebih lanjut tentang konsep ini atau ingin latihan tambahan, jangan ragu untuk bertanya!
+
+**Polymorphism** adalah konsep dalam OOP yang memungkinkan suatu entitas (SuperClass) mewariskan properti dan method ke SubClass, yang dapat mengubah implementasinya sesuai kebutuhan. Ini memungkinkan SubClass untuk memiliki bentuk (implementasi) yang berbeda dari SuperClass.
+
+**Overriding** adalah teknik dalam polymorphism yang memungkinkan SubClass mengubah atau menambah implementasi method atau constructor yang diwariskan dari SuperClass. Overriding constructor digunakan untuk menambah properti baru di SubClass, sementara overriding method memungkinkan SubClass mengubah perilaku method yang diturunkan.
+
+**Contoh:** 
+- Overriding method `charging()` di SubClass `Android` menambahkan dukungan untuk "fast charger," menggantikan implementasi di SuperClass `SmartPhones`.
+
+**Polymorphism** adalah salah satu pilar utama dalam pemrograman berorientasi objek (OOP), yang memungkinkan objek dari berbagai kelas terkait untuk diperlakukan sebagai objek dari kelas yang sama. Dengan polymorphism, satu method yang sama bisa memiliki perilaku yang berbeda tergantung pada objek mana yang mengimplementasikannya. Polymorphism sering digunakan bersamaan dengan pewarisan (inheritance), di mana SubClass dapat menggunakan atau mengubah properti dan method dari SuperClass.
+
+### **Overriding**
+Overriding adalah teknik di mana SubClass mengubah implementasi method atau constructor yang diwariskan dari SuperClass. Ada dua jenis overriding yang umum:
+
+1. **Overriding Constructor**
+   - Constructor adalah method khusus yang dipanggil ketika instance dari class dibuat. 
+   - Pada SubClass, kita bisa melakukan overriding constructor dari SuperClass untuk menambahkan properti baru.
+   - Saat mengoverride constructor, **harus** menggunakan method `super()` untuk memanggil constructor dari SuperClass agar properti yang diwariskan dapat diinisialisasi dengan benar.
+   
+   **Contoh Overriding Constructor:**
+   ```javascript
+   class SmartPhones {
+     constructor(color, brand, model) {
+       this.color = color;
+       this.brand = brand;
+       this.model = model;
+     }
+   }
+
+   class Android extends SmartPhones {
+     constructor(color, brand, model, device) {
+       super(color, brand, model);  // Memanggil constructor SuperClass
+       this.device = device;  // Properti baru di SubClass
+     }
+   }
+
+   const android = new Android('white', 'B', 'Galaxy S21', 'smart TV');
+   console.log(android);
+   ```
+   Pada contoh ini, `Android` memiliki properti tambahan `device`, di samping properti yang diwariskan dari `SmartPhones`.
+
+2. **Overriding Method**
+   - Selain constructor, method yang diwariskan dari SuperClass juga dapat diubah di SubClass. 
+   - Overriding method memungkinkan SubClass mengimplementasikan versi method yang lebih spesifik atau lebih kompleks dibandingkan dengan SuperClass.
+   - Tidak perlu menggunakan `super()` di dalam method yang di-override, tetapi kita **bisa** menggunakannya jika ingin memanggil method dari SuperClass sebelum atau setelah menambahkan logika baru.
+
+   **Contoh Overriding Method:**
+   ```javascript
+   class SmartPhones {
+     constructor(color, brand, model) {
+       this.color = color;
+       this.brand = brand;
+       this.model = model;
+     }
+     charging() {
+       console.log(`Charging ${this.model}`);
+     }
+   }
+
+   class Android extends SmartPhones {
+     constructor(color, brand, model, device) {
+       super(color, brand, model);
+       this.device = device;
+     }
+     charging() {
+       super.charging();  // Memanggil method dari SuperClass
+       console.log(`Charging ${this.model} with fast charger`);
+     }
+   }
+
+   const android = new Android('white', 'B', 'Galaxy S21', 'smart TV');
+   android.charging();
+   ```
+   Output:
+   ```
+   Charging Galaxy S21
+   Charging Galaxy S21 with fast charger
+   ```
+   Di sini, method `charging()` di `Android` mengubah perilaku method `charging()` dari SuperClass `SmartPhones` dengan menambahkan dukungan untuk "fast charger". Method `super.charging()` digunakan untuk memanggil method dari SuperClass sebelum menambahkan logika baru.
+
+### **Perbedaan Polymorphism dan Inheritance**
+- **Inheritance** (pewarisan) memungkinkan SubClass untuk menggunakan properti dan method yang ada di SuperClass tanpa harus mendefinisikannya ulang.
+- **Polymorphism** memungkinkan SubClass untuk mengubah (override) atau menambah implementasi dari properti atau method yang diwariskan, sehingga memberikan fleksibilitas dalam penanganan objek dari berbagai jenis secara seragam.
+
+Polymorphism memungkinkan kita untuk menggunakan satu antarmuka umum (SuperClass) untuk berbagai SubClass dengan perilaku yang berbeda, sementara inheritance hanya menyangkut penurunan properti dan method. Polymorphism lebih spesifik pada cara bagaimana SubClass dapat mengubah atau mengimplementasikan ulang method-method tersebut.
+
+Berikut adalah contoh soal latihan yang bisa membantu Anda memahami konsep **encapsulation** dalam OOP menggunakan JavaScript.
+
+**Latihan 1: Encapsulation dalam JavaScript**
+
+Buat sebuah class `Car` yang memiliki properti dan method berikut:
+1. Properti `brand`, `model`, dan `year`.
+2. Method `startEngine()` yang mencetak pesan bahwa mesin mobil sedang menyala.
+3. Method `getDetails()` yang mengembalikan informasi mobil (brand, model, year) dalam format string.
+
+Gunakan **encapsulation** untuk melindungi properti `brand`, `model`, dan `year` agar tidak dapat diakses langsung dari luar class. Sebagai gantinya, buat method getter dan setter untuk mengakses dan mengubah nilai properti tersebut.
+
+**Instruksi:**
+- Buat properti `brand`, `model`, dan `year` menjadi private dengan menggunakan konvensi penamaan (misalnya dengan awalan underscore `_`).
+- Buat getter dan setter untuk masing-masing properti agar data bisa diambil atau diubah dengan aman.
+
+**Contoh Output:**
+```javascript
+const myCar = new Car('Toyota', 'Corolla', 2020);
+
+// Mengakses data melalui getter
+console.log(myCar.getDetails()); 
+// Output: "Car: Toyota Corolla, Year: 2020"
+
+// Mengubah data menggunakan setter
+myCar.setYear(2021);
+
+// Mengakses data yang sudah diubah
+console.log(myCar.getDetails()); 
+// Output: "Car: Toyota Corolla, Year: 2021"
+
+// Menyalakan mesin
+myCar.startEngine(); 
+// Output: "The engine of Toyota Corolla is now running."
+```
+
+### **Solusi:**
+```javascript
+class Car {
+  // Properti private dengan awalan _
+  constructor(brand, model, year) {
+    this._brand = brand;
+    this._model = model;
+    this._year = year;
+  }
+
+  // Getter untuk mendapatkan properti
+  getBrand() {
+    return this._brand;
+  }
+
+  getModel() {
+    return this._model;
+  }
+
+  getYear() {
+    return this._year;
+  }
+
+  // Setter untuk mengubah properti
+  setBrand(newBrand) {
+    this._brand = newBrand;
+  }
+
+  setModel(newModel) {
+    this._model = newModel;
+  }
+
+  setYear(newYear) {
+    if (newYear > 1885) {  // Validasi untuk memastikan tahun lebih dari 1885 (tahun mobil pertama dibuat)
+      this._year = newYear;
+    } else {
+      console.log('Invalid year');
+    }
+  }
+
+  // Method untuk menyalakan mesin
+  startEngine() {
+    console.log(`The engine of ${this._brand} ${this._model} is now running.`);
+  }
+
+  // Method untuk mendapatkan detail mobil
+  getDetails() {
+    return `Car: ${this._brand} ${this._model}, Year: ${this._year}`;
+  }
+}
+
+// Menguji class Car
+const myCar = new Car('Toyota', 'Corolla', 2020);
+
+console.log(myCar.getDetails()); 
+myCar.setYear(2021);
+console.log(myCar.getDetails()); 
+myCar.startEngine();
+```
+
+### **Penjelasan:**
+- **Encapsulation** diterapkan dengan membuat properti `brand`, `model`, dan `year` bersifat private (dengan awalan `_`) agar tidak dapat diakses langsung dari luar class.
+- Getter (`getBrand()`, `getModel()`, `getYear()`) digunakan untuk mengambil nilai properti, sementara setter (`setBrand()`, `setModel()`, `setYear()`) digunakan untuk mengubah nilai properti.
+- Setter `setYear()` juga memiliki validasi untuk memastikan tahun yang diberikan adalah valid.
+
+Dengan menggunakan encapsulation, kita melindungi properti internal class dari modifikasi langsung, dan hanya memberikan akses yang terkontrol melalui getter dan setter.
+
+
+Dalam JavaScript, simbol `_` (underscore) dan `#` digunakan untuk tujuan yang berbeda dalam mengimplementasikan **encapsulation** atau pembatasan akses terhadap properti dan method di dalam class.
+
+### **1. Underscore (`_`)**
+Underscore (`_`) hanyalah konvensi penamaan yang biasa digunakan oleh para developer untuk menandakan bahwa sebuah properti atau method **seharusnya dianggap private** (hanya diakses di dalam class tersebut). Namun, ini **tidak benar-benar membuat properti tersebut private**. Properti atau method yang diawali dengan `_` masih bisa diakses dan dimodifikasi dari luar class.
+
+**Contoh dengan `_`:**
+```javascript
+class Car {
+  constructor(brand, model) {
+    this._brand = brand;  // Konvensi bahwa ini 'private'
+    this._model = model;
+  }
+
+  getBrand() {
+    return this._brand;
+  }
+}
+
+const myCar = new Car('Toyota', 'Corolla');
+console.log(myCar._brand);  // Output: "Toyota" (masih bisa diakses)
+```
+
+Pada contoh ini, meskipun `_brand` dimulai dengan underscore, kita masih bisa mengakses dan memodifikasinya dari luar class. Tidak ada mekanisme privasi yang sesungguhnya diterapkan; ini hanya kesepakatan antara developer untuk tidak mengakses properti yang diawali dengan `_`.
+
+### **2. Hash (`#`)**
+Simbol `#` adalah fitur baru dalam JavaScript (ECMAScript 2019 atau ES6+) yang **secara resmi membuat properti atau method menjadi private**. Properti atau method yang diawali dengan `#` tidak bisa diakses dari luar class, hanya bisa diakses di dalam class itu sendiri. Jika Anda mencoba mengakses properti private dari luar, JavaScript akan menghasilkan error.
+
+**Contoh dengan `#`:**
+```javascript
+class Car {
+  // Properti private
+  #brand;
+  #model;
+
+  constructor(brand, model) {
+    this.#brand = brand;  // Private property
+    this.#model = model;
+  }
+
+  getBrand() {
+    return this.#brand;  // Hanya bisa diakses dari dalam class
+  }
+}
+
+const myCar = new Car('Toyota', 'Corolla');
+console.log(myCar.#brand);  // Error: Private field '#brand' must be declared in an enclosing class
+```
+
+Pada contoh ini, properti `#brand` dan `#model` benar-benar bersifat private. Jika mencoba mengakses `#brand` dari luar class, akan muncul **error** karena properti tersebut tidak dapat diakses langsung dari luar.
+
+### **Perbedaan Utama:**
+1. **Underscore (`_`):**
+   - Hanya **konvensi** untuk menunjukkan bahwa properti atau method bersifat "private" (tetapi masih dapat diakses dari luar class).
+   - Tidak ada perlindungan privasi sesungguhnya di JavaScript.
+
+2. **Hash (`#`):**
+   - Merupakan fitur resmi yang membuat properti atau method **benar-benar private**.
+   - Properti atau method dengan `#` tidak bisa diakses dari luar class.
+   - Digunakan dalam ECMAScript 2019 (ES6+) ke atas.
+
+### **Contoh Perbandingan:**
+
+```javascript
+class Car {
+  _publicBrand = 'Public Toyota';  // Konvensi "private" tapi bisa diakses
+  #privateBrand = 'Private Toyota';  // Properti private yang sesungguhnya
+
+  getPublicBrand() {
+    return this._publicBrand;
+  }
+
+  getPrivateBrand() {
+    return this.#privateBrand;
+  }
+}
+
+const myCar = new Car();
+console.log(myCar._publicBrand);   // Output: "Public Toyota" (masih bisa diakses)
+console.log(myCar.#privateBrand);  // Error: Private field '#privateBrand' must be declared in an enclosing class
+```
+
+### Kesimpulan:
+- Gunakan `_` sebagai penanda bagi developer bahwa suatu properti "sebaiknya" dianggap private, meskipun tidak ada perlindungan privasi sesungguhnya.
+- Gunakan `#` jika ingin memastikan properti atau method benar-benar private dan tidak bisa diakses dari luar class di JavaScript modern.
+
+Penggunaan underscore (`_`) dan hash (`#`) dalam JavaScript tergantung pada kebutuhan spesifik dan kompatibilitas kode dengan standar JavaScript modern. Berikut adalah beberapa panduan tentang kapan menggunakan masing-masing:
+
+### 1. **Underscore (`_`):** 
+   - **Kapan digunakan?**
+     - Jika Anda **tidak terlalu khawatir** dengan privasi penuh tetapi ingin memberi tahu developer lain bahwa properti atau method tertentu **tidak dimaksudkan untuk diakses langsung dari luar** class.
+     - **Kompatibilitas**: Digunakan saat Anda bekerja dengan versi JavaScript yang lebih lama, atau saat Anda perlu mendukung browser yang tidak mendukung fitur private field (`#`).
+     - Dalam **tim besar** atau proyek yang mengutamakan kesederhanaan, underscore sering digunakan sebagai pedoman bahwa properti tersebut **sebaiknya** dianggap private, meskipun sebenarnya masih dapat diakses.
+     - Ketika Anda menggunakan framework atau library JavaScript yang tidak mendukung private field secara native (misalnya, sebelum ECMAScript 2019).
+
+   - **Kelebihan:**
+     - Sangat **kompatibel** dengan semua versi JavaScript dan bisa bekerja dengan semua browser atau lingkungan JavaScript yang lebih tua.
+     - Mudah dipahami oleh developer sebagai tanda visual bahwa properti itu "bersifat private".
+
+   - **Kekurangan:**
+     - Tidak memberikan proteksi privasi yang sesungguhnya. Pengguna luar masih bisa mengakses dan memodifikasi properti ini, yang berpotensi menyebabkan masalah dalam aplikasi yang besar dan kompleks.
+
+   - **Contoh penggunaan:**
+     ```javascript
+     class Car {
+       constructor(brand, model) {
+         this._brand = brand;  // Penanda "private"
+         this._model = model;
+       }
+
+       getBrand() {
+         return this._brand;
+       }
+     }
+
+     const car = new Car('Toyota', 'Corolla');
+     console.log(car._brand);  // Akses ke "private" property (meskipun seharusnya tidak)
+     ```
+
+### 2. **Hash (`#`):**
+   - **Kapan digunakan?**
+     - Jika Anda menginginkan **privasi penuh** di dalam class, di mana properti atau method benar-benar tidak dapat diakses dari luar.
+     - Saat Anda bekerja dengan proyek **modern** yang dapat mendukung ECMAScript 2019 atau versi JavaScript yang lebih baru (misalnya, jika aplikasi Anda hanya berjalan di browser modern atau Node.js terbaru).
+     - Ketika Anda ingin memastikan kode Anda **terlindungi** dari manipulasi luar, terutama pada sistem yang lebih besar atau aplikasi yang lebih kompleks, di mana kontrol akses ke data sangat penting.
+     - Saat membuat **class library** atau API publik, di mana Anda ingin memastikan pengguna tidak dapat secara langsung mengubah nilai internal objek.
+
+   - **Kelebihan:**
+     - Memberikan **perlindungan privasi yang sesungguhnya**. Tidak ada cara bagi pengguna luar untuk mengakses atau memodifikasi properti yang diberi tanda `#`.
+     - Memungkinkan kontrol penuh atas bagaimana properti atau method diakses dan dimodifikasi melalui class.
+
+   - **Kekurangan:**
+     - **Tidak kompatibel** dengan semua lingkungan JavaScript, terutama browser lama atau lingkungan yang belum mendukung ECMAScript 2019.
+     - Bisa lebih sulit dipahami bagi developer yang belum terbiasa dengan JavaScript modern.
+
+   - **Contoh penggunaan:**
+     ```javascript
+     class Car {
+       #brand;  // Private field
+       #model;  // Private field
+
+       constructor(brand, model) {
+         this.#brand = brand;  // Hanya bisa diakses di dalam class
+         this.#model = model;
+       }
+
+       getBrand() {
+         return this.#brand;
+       }
+     }
+
+     const car = new Car('Toyota', 'Corolla');
+     console.log(car.#brand);  // Error: Cannot access private field
+     ```
+
+     
+### **Kapan Harus Menggunakan Masing-Masing:**
+
+- **Gunakan underscore (`_`)** jika:
+  - Anda ingin menggunakan konvensi penamaan yang lebih sederhana dan **tidak terlalu khawatir** tentang perlindungan privasi secara ketat.
+  - Anda bekerja di lingkungan di mana **kompatibilitas dengan versi JavaScript lama** atau browser yang lebih tua masih menjadi perhatian utama.
+  - Proyek Anda tidak terlalu besar dan Anda tidak merasa perlu memproteksi properti secara ketat, atau Anda hanya ingin menandakan secara visual bahwa properti tersebut bersifat private.
+
+- **Gunakan hash (`#`)** jika:
+  - Anda bekerja dengan JavaScript **modern** dan membutuhkan **kontrol akses penuh** untuk properti dan method di dalam class.
+  - Anda ingin **menghindari kemungkinan bug** di masa depan akibat properti atau method yang tidak sengaja dimodifikasi oleh pengguna luar.
+  - Anda membuat library atau sistem besar yang memerlukan **tingkat privasi yang lebih tinggi** untuk mencegah perubahan tidak diinginkan oleh pengguna atau developer lain.
+
+### **Kesimpulan:**
+- **Underscore (`_`)** hanya merupakan konvensi penamaan yang masih bisa diakses dari luar class, tetapi memberikan petunjuk kepada developer lain bahwa properti atau method itu sebaiknya tidak diakses secara langsung.
+- **Hash (`#`)** memberikan privasi yang sesungguhnya dengan memastikan properti dan method benar-benar hanya bisa diakses dari dalam class.
+
+Jika Anda menggunakan JavaScript modern dan membutuhkan privasi penuh, lebih baik menggunakan `#`. Namun, jika Anda membutuhkan kompatibilitas yang lebih luas atau hanya memberi peringatan kepada developer lain tentang akses, maka `_` masih bisa digunakan.
