@@ -1641,3 +1641,98 @@ Penggunaan underscore (`_`) dan hash (`#`) dalam JavaScript tergantung pada kebu
 - **Hash (`#`)** memberikan privasi yang sesungguhnya dengan memastikan properti dan method benar-benar hanya bisa diakses dari dalam class.
 
 Jika Anda menggunakan JavaScript modern dan membutuhkan privasi penuh, lebih baik menggunakan `#`. Namun, jika Anda membutuhkan kompatibilitas yang lebih luas atau hanya memberi peringatan kepada developer lain tentang akses, maka `_` masih bisa digunakan.
+\
+
+
+
+------------------
+Minggu, 20 Oktober 2024
+
+Ya, kedua contoh kode yang kamu berikan pada dasarnya menghasilkan perilaku yang sama, tetapi dengan pendekatan yang berbeda dalam hal inisialisasi objek. Mari kita bahas lebih detail:
+
+### Contoh Pertama
+
+```javascript
+class Animal {
+  constructor(name, age, isMammal) {
+    this.name = name;
+    this.age = age;
+    this.isMammal = isMammal;
+  }
+}
+
+class Rabbit extends Animal {
+  eat() {
+    return `${this.name} sedang makan!`; 
+  }
+}
+
+class Eagle extends Animal {
+  fly() {
+    return `${this.name} sedang terbang!`;
+  }
+}
+
+const myRabbit = new Rabbit('Labi', 2, true);
+const myEagle = new Eagle('Elo', 4, false);
+
+console.log(myRabbit.isMammal); // Output: true
+console.log(myEagle.isMammal);   // Output: false
+```
+
+- **Penjelasan**: 
+  - Di sini, kamu memberikan semua tiga argumen (`name`, `age`, dan `isMammal`) saat membuat objek `myRabbit` dan `myEagle`.
+  - Ini berarti kamu harus memastikan untuk memasukkan nilai yang tepat untuk `isMammal` setiap kali kamu membuat objek baru.
+
+### Contoh Kedua
+
+```javascript
+class Animal {
+  constructor(name, age, isMammal) {
+    this.name = name;
+    this.age = age;
+    this.isMammal = isMammal;
+  }
+}
+
+class Rabbit extends Animal {
+  constructor(name, age) {
+    super(name, age, true); // isMammal selalu true
+  }
+
+  eat() {
+    return `${this.name} sedang makan!`; 
+  }
+}
+
+class Eagle extends Animal {
+  constructor(name, age) {
+    super(name, age, false); // isMammal selalu false
+  }
+
+  fly() {
+    return `${this.name} sedang terbang!`;
+  }
+}
+
+const myRabbit = new Rabbit('Labi', 2);
+const myEagle = new Eagle('Elo', 4);
+
+console.log(myRabbit.isMammal); // Output: true
+console.log(myEagle.isMammal);   // Output: false
+```
+
+- **Penjelasan**: 
+  - Di sini, kamu menambahkan konstruktor di kelas `Rabbit` dan `Eagle` yang memanggil `super()` dengan nilai yang telah ditentukan untuk `isMammal`.
+  - Dengan cara ini, kamu tidak perlu memberikan nilai untuk `isMammal` setiap kali kamu membuat objek dari `Rabbit` atau `Eagle`; kelas turunan sudah mengatur nilai tersebut untuk kamu.
+
+### Kesimpulan
+
+- **Output**: 
+  - Keduanya akan menghasilkan output yang sama, yaitu `true` untuk `myRabbit.isMammal` dan `false` untuk `myEagle.isMammal`.
+
+- **Keuntungan Pendekatan Kedua**: 
+  - Pendekatan kedua lebih aman dan lebih bersih, karena mengurangi kemungkinan kesalahan. 
+  - Pengembang tidak perlu ingat untuk memberikan nilai `isMammal` secara eksplisit setiap kali membuat objek baru, yang membuat kode lebih mudah dibaca dan digunakan.
+
+Jadi, meskipun kedua contoh menghasilkan hasil yang sama, pendekatan kedua lebih baik dalam hal pemeliharaan kode dan kejelasan. Jika ada yang masih membingungkan atau ada pertanyaan lain, silakan tanyakan!
