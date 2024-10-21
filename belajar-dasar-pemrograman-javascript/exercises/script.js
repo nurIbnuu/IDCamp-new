@@ -1736,3 +1736,321 @@ console.log(myEagle.isMammal);   // Output: false
   - Pengembang tidak perlu ingat untuk memberikan nilai `isMammal` secara eksplisit setiap kali membuat objek baru, yang membuat kode lebih mudah dibaca dan digunakan.
 
 Jadi, meskipun kedua contoh menghasilkan hasil yang sama, pendekatan kedua lebih baik dalam hal pemeliharaan kode dan kejelasan. Jika ada yang masih membingungkan atau ada pertanyaan lain, silakan tanyakan!
+
+
+
+
+
+
+-------------------- 
+Senin, 21 Oktober 2024
+DASAR OOP
+Berikut adalah gabungan dari semua konsep utama **OOP dalam JavaScript** beserta contoh kodenya. Ini mencakup **class**, **inheritance**, **encapsulation**, **polymorphism**, **object composition**, **abstraction**, dan **interface-like behavior**.
+
+### 1. **Class (Kelas)**
+   - **Pengertian**: Template atau cetak biru untuk membuat objek dengan properti dan metode yang sama.
+   ```javascript
+   class Animal {
+     constructor(name, age) {
+       this.name = name;
+       this.age = age;
+     }
+
+     speak() {
+       return `${this.name} makes a sound.`;
+     }
+   }
+   ```
+
+### 2. **Inheritance (Pewarisan)**
+   - **Pengertian**: Class turunan dapat mewarisi properti dan metode dari class induk.
+   ```javascript
+   class Rabbit extends Animal {
+     eat() {
+       return `${this.name} is eating.`;
+     }
+   }
+
+   class Eagle extends Animal {
+     fly() {
+       return `${this.name} is flying.`;
+     }
+   }
+   ```
+
+### 3. **Encapsulation (Enkapsulasi)**
+   - **Pengertian**: Menyembunyikan data dengan hanya menyediakan akses melalui metode khusus (getter dan setter).
+   ```javascript
+   class Animal {
+     #name; // Properti privat
+
+     constructor(name, age) {
+       this.#name = name;
+       this.age = age;
+     }
+
+     getName() {
+       return this.#name;
+     }
+
+     setName(newName) {
+       this.#name = newName;
+     }
+   }
+
+   const myAnimal = new Animal('Labi', 2);
+   console.log(myAnimal.getName()); // Output: Labi
+   myAnimal.setName('Bunny');
+   console.log(myAnimal.getName()); // Output: Bunny
+   ```
+
+### 4. **Polymorphism (Polimorfisme)**
+   - **Pengertian**: Class turunan dapat memiliki metode yang sama dengan class induk, tetapi dengan implementasi yang berbeda.
+   ```javascript
+   class Animal {
+     speak() {
+       return `${this.name} makes a sound.`;
+     }
+   }
+
+   class Rabbit extends Animal {
+     speak() {
+       return `${this.name} says squeak!`;
+     }
+   }
+
+   class Eagle extends Animal {
+     speak() {
+       return `${this.name} screams!`;
+     }
+   }
+
+   const myRabbit = new Rabbit('Labi');
+   const myEagle = new Eagle('Elo');
+
+   console.log(myRabbit.speak()); // Output: Labi says squeak!
+   console.log(myEagle.speak());  // Output: Elo screams!
+   ```
+
+### 5. **Object Composition (Komposisi Objek)**
+   - **Pengertian**: Membuat objek yang lebih kompleks dengan menggabungkan beberapa objek yang lebih kecil.
+   ```javascript
+   class Swimmable {
+     swim() {
+       return "Swimming in the water!";
+     }
+   }
+
+   class Flyable {
+     fly() {
+       return "Flying in the sky!";
+     }
+   }
+
+   class Animal {
+     constructor(name, age, swimmable, flyable) {
+       this.name = name;
+       this.age = age;
+       this.swimmable = swimmable;
+       this.flyable = flyable;
+     }
+
+     swim() {
+       return this.swimmable ? this.swimmable.swim() : `${this.name} cannot swim.`;
+     }
+
+     fly() {
+       return this.flyable ? this.flyable.fly() : `${this.name} cannot fly.`;
+     }
+   }
+
+   const fish = new Animal("Goldfish", 1, new Swimmable(), null);
+   const bird = new Animal("Parrot", 2, null, new Flyable());
+
+   console.log(fish.swim()); // Output: Swimming in the water!
+   console.log(bird.fly());  // Output: Flying in the sky!
+   ```
+
+### 6. **Abstraction (Abstraksi)**
+   - **Pengertian**: Menyembunyikan kompleksitas dan hanya menampilkan fungsionalitas penting.
+   ```javascript
+   class Vehicle {
+     startEngine() {
+       return "Engine started!";
+     }
+
+     move() {
+       return "Vehicle is moving!";
+     }
+   }
+
+   class Car extends Vehicle {
+     move() {
+       return "Car is driving!";
+     }
+   }
+
+   const myCar = new Car();
+   console.log(myCar.startEngine()); // Output: Engine started!
+   console.log(myCar.move());        // Output: Car is driving!
+   ```
+
+### 7. **Interface-like behavior (Perilaku mirip Interface)**
+   - **Pengertian**: Menjamin bahwa class turunan mengimplementasikan metode tertentu meskipun JavaScript tidak memiliki keyword `interface`.
+   ```javascript
+   class Animal {
+     constructor(name) {
+       this.name = name;
+     }
+
+     // Metode ini harus diimplementasikan di class turunan
+     makeSound() {
+       throw new Error("Method 'makeSound()' must be implemented.");
+     }
+   }
+
+   class Dog extends Animal {
+     makeSound() {
+       return "Bark!";
+     }
+   }
+
+   const dog = new Dog("Buddy");
+   console.log(dog.makeSound()); // Output: Bark!
+   ```
+
+### **Kesimpulan OOP dalam JavaScript**:
+1. **Class**: Template untuk membuat objek dengan properti dan metode.
+2. **Inheritance**: Pewarisan fitur dari class induk ke class turunan.
+3. **Encapsulation**: Menyembunyikan data dengan akses terbatas melalui getter/setter.
+4. **Polymorphism**: Metode yang sama bisa berperilaku berbeda di class turunan.
+5. **Object Composition**: Membuat objek kompleks dengan menggabungkan beberapa objek.
+6. **Abstraction**: Menyembunyikan detail implementasi dan hanya menyediakan antarmuka yang mudah digunakan.
+7. **Interface-like behavior**: Mengharuskan class turunan mengimplementasikan metode tertentu.
+
+Dengan ringkasan ini, kamu dapat dengan mudah mengingat dan memahami konsep-konsep utama dalam **OOP di JavaScript**.
+
+
+-------
+Object Composition
+Berikut ini adalah perbandingan kode yang menggunakan **Object Composition** dan **Inheritance** dalam JavaScript untuk kasus sederhana, sehingga kamu bisa melihat bagaimana keduanya bekerja.
+
+### 1. **Contoh dengan Inheritance (Pewarisan)**
+
+Dalam contoh pewarisan ini, kita membuat class `Animal` sebagai class induk, kemudian `Dog` dan `Bird` mewarisi dari `Animal`.
+
+```javascript
+// Inheritance (Pewarisan)
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    return `${this.name} makes a sound.`;
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    return `${this.name} barks.`;
+  }
+}
+
+class Bird extends Animal {
+  speak() {
+    return `${this.name} chirps.`;
+  }
+
+  fly() {
+    return `${this.name} is flying!`;
+  }
+}
+
+// Membuat instance dari Dog dan Bird
+const myDog = new Dog("Buddy");
+const myBird = new Bird("Tweety");
+
+console.log(myDog.speak()); // Output: Buddy barks.
+console.log(myBird.speak()); // Output: Tweety chirps.
+console.log(myBird.fly());   // Output: Tweety is flying!
+```
+
+#### **Penjelasan Inheritance:**
+- Class `Dog` dan `Bird` mewarisi properti dan metode dari `Animal`.
+- `Dog` menimpa metode `speak()` dari `Animal`, tetapi `Dog` dan `Bird` tetap memiliki struktur yang bergantung pada class induk.
+- Setiap turunan membawa serta semua fitur class induknya, meskipun mungkin tidak semuanya dibutuhkan.
+
+### 2. **Contoh dengan Object Composition (Komposisi Objek)**
+
+Dalam contoh ini, kita menggunakan komposisi untuk memberikan kemampuan spesifik ke objek tanpa perlu mewarisi dari class induk. Misalnya, `Dog` memiliki kemampuan berbicara, sedangkan `Bird` bisa berbicara dan terbang.
+
+```javascript
+// Object Composition (Komposisi Objek)
+class Speakable {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    return `${this.name} makes a sound.`;
+  }
+}
+
+class Barkable {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    return `${this.name} barks.`;
+  }
+}
+
+class Flyable {
+  constructor(name) {
+    this.name = name;
+  }
+
+  fly() {
+    return `${this.name} is flying!`;
+  }
+}
+
+// Membuat instance dari Dog dan Bird dengan komposisi
+const myDog = new Barkable("Buddy");
+const myBird = Object.assign(new Speakable("Tweety"), new Flyable("Tweety"));
+
+console.log(myDog.speak()); // Output: Buddy barks.
+console.log(myBird.speak()); // Output: Tweety makes a sound.
+console.log(myBird.fly());   // Output: Tweety is flying!
+```
+
+#### **Penjelasan Object Composition:**
+- `Speakable`, `Barkable`, dan `Flyable` adalah objek dengan tanggung jawab spesifik. Mereka dapat dikombinasikan untuk memberikan perilaku pada objek `myDog` dan `myBird`.
+- **Komposisi** memungkinkan kita membuat objek yang lebih fleksibel. Misalnya, `myBird` adalah gabungan dari objek yang bisa berbicara dan terbang tanpa harus memikirkan pewarisan hierarki.
+- Menggunakan `Object.assign()` untuk menggabungkan beberapa kemampuan ke dalam satu objek.
+
+---
+
+### **Perbandingan Langsung:**
+
+1. **Fleksibilitas:**
+   - **Inheritance**: Dengan pewarisan, `Dog` dan `Bird` harus mengikuti struktur hierarki. Jika ada perubahan besar pada `Animal`, maka perubahan tersebut akan memengaruhi semua turunan.
+   - **Object Composition**: Komposisi lebih fleksibel, karena kita dapat memilih hanya kemampuan yang dibutuhkan oleh masing-masing objek. Ini tidak terikat oleh struktur hierarki class.
+
+2. **Keterikatan (Coupling):**
+   - **Inheritance**: Class turunan (`Dog`, `Bird`) sangat terikat pada class induknya (`Animal`). Setiap perubahan di `Animal` mungkin akan memengaruhi `Dog` dan `Bird`.
+   - **Object Composition**: Setiap bagian berdiri sendiri (misalnya, `Speakable`, `Flyable`) dan bisa digunakan kembali di objek lain tanpa saling bergantung satu sama lain.
+
+3. **Penggunaan Ulang Kode (Reusability):**
+   - **Inheritance**: Kamu hanya bisa menggunakan kembali kode dari class induk ke class turunan. Jika butuh perilaku berbeda, kamu harus menimpa metode class induk.
+   - **Object Composition**: Kamu bisa menggunakan kembali setiap objek kecil (modular), seperti `Speakable` atau `Flyable`, dan menggabungkannya dengan objek lain. Ini sangat berguna ketika kamu ingin berbagi kemampuan yang sama di banyak objek tanpa membuat hirarki baru.
+
+---
+
+### **Kesimpulan:**
+- **Inheritance** cocok jika objek memiliki hubungan alami dalam hierarki **"is-a"**, misalnya, **"Dog is an Animal"**.
+- **Object Composition** cocok ketika kamu ingin lebih fleksibel dan menyusun objek dengan kemampuan yang berbeda, misalnya, **"Bird can fly, but not all animals can"**.
+
+Kedua pendekatan ini memiliki tempatnya masing-masing, tergantung pada kebutuhan struktur program dan seberapa fleksibel atau ketat kamu ingin kode itu dikelola.
