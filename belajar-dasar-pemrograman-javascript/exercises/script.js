@@ -2054,3 +2054,87 @@ console.log(myBird.fly());   // Output: Tweety is flying!
 - **Object Composition** cocok ketika kamu ingin lebih fleksibel dan menyusun objek dengan kemampuan yang berbeda, misalnya, **"Bird can fly, but not all animals can"**.
 
 Kedua pendekatan ini memiliki tempatnya masing-masing, tergantung pada kebutuhan struktur program dan seberapa fleksibel atau ketat kamu ingin kode itu dikelola.
+
+
+
+
+------------------------
+Selasa, 22 Oktober 2024
+Tentu, berikut adalah rangkuman materi yang telah dipelajari hari ini:
+
+### 1. **Object Composition dalam JavaScript**
+- **Pengertian**: Object composition adalah teknik OOP di mana objek dibentuk dengan menggabungkan fungsi-fungsi yang mewakili kemampuan-kemampuan tertentu, alih-alih menggunakan hierarki kelas.
+- **Tujuan**: Memberikan fleksibilitas lebih dalam menggabungkan kemampuan tanpa bergantung pada hierarki, sehingga memudahkan penambahan atau perubahan kemampuan di masa depan.
+- **Kode Sederhana**:
+  ```javascript
+  function canAttack(character) {
+    return {
+      attack: () => console.log(`${character} menyerang!`)
+    };
+  }
+  
+  function canDefend(character) {
+    return {
+      defend: () => console.log(`${character} bertahan!`)
+    };
+  }
+
+  const warrior = Object.assign({}, canAttack('Warrior'), canDefend('Warrior'));
+  warrior.attack(); // Warrior menyerang!
+  warrior.defend(); // Warrior bertahan!
+  ```
+
+### 2. **Perbandingan Object Composition dengan Inheritance**
+- **Inheritance (Pewarisan)**: Menggunakan hirarki kelas untuk mewariskan properti dan metode.
+  - **Contoh Kode**:
+    ```javascript
+    class Character {
+      constructor(name) {
+        this.name = name;
+      }
+    }
+
+    class Warrior extends Character {
+      attack() {
+        console.log(`${this.name} menyerang!`);
+      }
+    }
+
+    const warrior = new Warrior('Warrior');
+    warrior.attack(); // Warrior menyerang!
+    ```
+- **Object Composition** memungkinkan penggabungan kemampuan yang lebih fleksibel, dibandingkan dengan pewarisan yang lebih kaku.
+
+### 3. **Konstanta dan Referensi dalam JavaScript**
+- **Const**: Digunakan untuk mendeklarasikan variabel yang nilainya tidak dapat diubah setelah diinisialisasi, **kecuali** untuk objek dan array.
+  - **Referensi**: Pada objek dan array, meskipun kita tidak bisa mengubah referensi objek, kita masih bisa mengubah properti di dalam objek tersebut.
+  - **Gambar Ilustrasi**: Dalam gambar yang sudah kita buat, panah menunjukkan referensi yang tidak bisa diubah.
+  
+  **Contoh Kode**:
+  ```javascript
+  const buku = { judul: "Belajar" };
+  buku.judul = "Belajar JavaScript"; // Mengubah properti diperbolehkan
+  ```
+
+### 4. **Properti, Key, dan Value**
+- **Properti**: Kombinasi **key** dan **value** dalam objek.
+  - **Key**: Nama dari properti.
+  - **Value**: Nilai yang terkait dengan key.
+  
+  **Contoh Kode**:
+  ```javascript
+  const buku = { judul: "Belajar", penulis: "John" };
+  // Properti: judul: "Belajar"
+  // Key: judul
+  // Value: "Belajar"
+  ```
+
+### 5. **Kesimpulan tentang Konstanta dan Pengelolaan Memori**
+- **Pengelolaan Memori**: Pada objek di JavaScript, referensi objek disimpan di memori. Dengan `const`, referensi ini tidak dapat diubah, tetapi properti objek masih dapat dimodifikasi.
+- **Tidak Bisa Mengganti Referensi**:
+  ```javascript
+  const buku = { judul: "Belajar" };
+  buku = { judul: "Belajar Python" }; // Error, karena tidak bisa mengganti referensi objek
+  ```
+
+Dengan rangkuman ini, semua materi dari hari ini telah disusun. Jika ada yang ingin ditambahkan atau diperjelas lagi, saya siap membantu!
