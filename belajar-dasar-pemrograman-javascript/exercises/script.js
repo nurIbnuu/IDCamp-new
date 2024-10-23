@@ -2138,3 +2138,50 @@ Tentu, berikut adalah rangkuman materi yang telah dipelajari hari ini:
   ```
 
 Dengan rangkuman ini, semua materi dari hari ini telah disusun. Jika ada yang ingin ditambahkan atau diperjelas lagi, saya siap membantu!
+
+
+--------------------------
+Rabu, 23 Oktober 2024
+Berikut penjelasan tentang konsep utama dalam Pemrograman Fungsional (Functional Programming - FP):
+
+1. **Pure Function**:
+   - **Definisi**: Fungsi murni (pure function) adalah fungsi yang, untuk input yang sama, selalu menghasilkan output yang sama dan tidak memiliki efek samping (side effects). Efek samping dapat berupa perubahan pada variabel di luar fungsi, interaksi dengan I/O, atau mengubah status program.
+   - **Contoh**: Fungsi yang menghitung jumlah dua angka:
+     ```javascript
+     function add(a, b) {
+         return a + b; // Selalu menghasilkan output yang sama untuk input yang sama
+     }
+     ```
+
+2. **Higher-Order Function**:
+   - **Definisi**: Fungsi tingkat tinggi (higher-order function) adalah fungsi yang dapat menerima fungsi lain sebagai argumen atau mengembalikan fungsi sebagai hasil. Ini memungkinkan penggunaan fungsi-fungsi lain untuk membentuk komposisi dan abstraksi yang lebih kompleks.
+   - **Contoh**: Fungsi yang menerima fungsi lain sebagai argumen:
+     ```javascript
+     function applyFunction(fn, value) {
+         return fn(value); // Menggunakan fungsi yang diterima sebagai argumen
+     }
+     
+     const result = applyFunction(add, 5); // Menerapkan fungsi add dengan argumen 5
+     ```
+
+3. **Recursion**:
+   - **Definisi**: Rekursi adalah teknik pemrograman di mana sebuah fungsi memanggil dirinya sendiri untuk menyelesaikan masalah. Ini sering digunakan untuk menyelesaikan masalah yang dapat dipecah menjadi sub-masalah yang lebih kecil.
+   - **Contoh**: Fungsi untuk menghitung faktorial:
+     ```javascript
+     function factorial(n) {
+         if (n === 0) {
+             return 1; // Kasus dasar
+         }
+         return n * factorial(n - 1); // Rekursi
+     }
+     ```
+
+4. **Immutability**:
+   - **Definisi**: Immutability (ketidakberubahan) adalah prinsip di mana data tidak dapat diubah setelah diciptakan. Jika perlu mengubah data, sebuah salinan baru dibuat dengan perubahan yang diinginkan. Ini membantu mencegah efek samping dan memudahkan pelacakan perubahan dalam aplikasi.
+   - **Contoh**: Menggunakan metode untuk membuat salinan array dengan elemen baru:
+     ```javascript
+     const originalArray = [1, 2, 3];
+     const newArray = [...originalArray, 4]; // Membuat array baru dengan elemen tambahan
+     ```
+
+Dengan memahami konsep-konsep ini, kamu dapat mulai menerapkan pendekatan pemrograman fungsional dalam kode kamu, meningkatkan modularitas, keterbacaan, dan pemeliharaan kode.
