@@ -2185,3 +2185,91 @@ Berikut penjelasan tentang konsep utama dalam Pemrograman Fungsional (Functional
      ```
 
 Dengan memahami konsep-konsep ini, kamu dapat mulai menerapkan pendekatan pemrograman fungsional dalam kode kamu, meningkatkan modularitas, keterbacaan, dan pemeliharaan kode.
+
+_----------------------------
+Kamis, 24 Oktober 2024
+Latihannnnn
+Terima kasih sudah mengirimkan jawabanmu, Ibnu! Mari kita tinjau jawabanmu satu per satu.
+
+### Latihan 1: Pemahaman Dasar Pemrograman
+**Jawabanmu:**
+Pemrograman adalah proses di mana seseorang memberikan instruksi kepada komputer berupa bahasa yang dipahami oleh komputer. Dengan pemrograman, kita bisa membuat program untuk menyelesaikan masalah melalui komputer.
+
+Ini jawaban yang bagus! Kamu sudah memahami bahwa pemrograman adalah instruksi yang diberikan kepada komputer untuk menjalankan tugas.
+
+### Latihan 2: Scripting vs Compiled Language
+**Jawabanmu:**
+- **Perbedaan antara scripting dan compiled language:**  
+Scripting language diterjemahkan oleh mesin menggunakan interpreter, sedangkan compiled language memerlukan compiler untuk menerjemahkan sebelum dijalankan.
+- **Contoh bahasa:**  
+Interpreter: JavaScript, PHP  
+Compiler: C#, C++
+
+Jawaban ini juga tepat! Kamu memahami bahwa scripting language dieksekusi langsung dengan interpreter, sedangkan compiled language butuh diterjemahkan terlebih dahulu oleh compiler.
+
+**Kode JavaScript:**
+```javascript
+alert('Hello World!');
+```
+Kodenya juga benar dan akan menampilkan pesan "Hello, World!" di browser.
+
+### Latihan 3: Pengenalan JavaScript
+**Jawabanmu:**
+JavaScript disebut sebagai scripting language karena tidak memerlukan compiler, melainkan interpreter untuk menjalankan programnya.
+
+Penjelasanmu singkat dan benar. JavaScript memang diinterpretasikan, itulah kenapa disebut scripting language.
+
+### Latihan 4: Sejarah dan Perkembangan JavaScript
+**Jawabanmu:**
+JavaScript diperkenalkan oleh Brendan Eich pada tahun 1995.
+
+Jawaban ini benar! JavaScript pertama kali diperkenalkan pada tahun 1995 oleh Brendan Eich saat bekerja di Netscape.
+
+**Timeline ECMAScript:**
+ECMAScript 3 populer sekitar tahun 2000-2010, dan ECMAScript versi 6 diperkenalkan pada 2015 dengan inovasi besar.
+
+Timeline ini bisa lebih lengkap, tapi ide dasarnya sudah benar.
+
+### Latihan 5: JavaScript di Browser
+**Jawabanmu:**
+Embedded JavaScript adalah kode yang ditulis di dalam file HTML, sedangkan external JavaScript ditulis di file terpisah dengan ekstensi `.js`.
+
+Penjelasanmu sudah tepat. Embedded JavaScript berada di dalam tag `<script>` di file HTML, sementara external JavaScript di-link dengan file terpisah.
+
+**Kode HTML:**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embedded JavaScript</title>
+</head>
+<body>
+  <h1>Embedded JavaScript</h1>
+  <script>
+    window.alert('Hello from Embedded JavaScript');
+  </script>
+</body>
+</html>
+```
+Kodenya benar dan akan menampilkan alert di browser.
+
+### Latihan 6: Node.js dan Bun
+**Jawabanmu:**
+Node.js adalah runtime untuk menjalankan JavaScript di server, sedangkan Bun lebih cepat dari Node.js.
+
+Jawaban ini benar. Node.js dan Bun adalah runtime untuk menjalankan JavaScript di luar browser, dan Bun lebih fokus pada kecepatan.
+
+**Kode Node.js:**
+```javascript
+console.log(process.platform);
+```
+Kodenya benar, dan akan menampilkan sistem operasi tempat Node.js dijalankan.
+
+---
+
+Secara keseluruhan, jawabanmu sudah sangat bagus dan tepat. Kamu sudah menguasai konsep-konsep dasar dengan baik! Jika ada bagian yang ingin kamu pelajari lebih dalam atau jika ada soal lain yang kamu rasa butuh lebih banyak latihan, silakan beri tahu.
+
+
+
