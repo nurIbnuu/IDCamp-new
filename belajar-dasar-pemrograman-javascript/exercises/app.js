@@ -106,3 +106,55 @@
 
 // console.log(calculator(add, 3, 2));
 // console.log(calculator(subtract, 3, 2));
+
+
+
+
+
+
+
+
+
+
+
+// -------
+// Sabtu, 26 Oktober 2024
+// Latihan 1: Membuat dan Mengakses Object
+// const student = {
+//   name: 'Muhammad Nur Ibnu Hubab',
+//   age: '18',
+//   grade: 'lecture'
+// }
+
+// console.log(student.age);
+// console.log(student['age']);
+// console.log(student.grade);
+// console.log(student['grade']);
+
+
+
+// Latihan 2: Array Manipulasi
+// const numbers = [10, 20, 30, 40, 50];
+// numbers[1] = 25;
+// numbers.push(60);
+// numbers.shift();
+// console.log(numbers);
+
+// Latihan 3: Map
+// const userProfile = new Map();
+// userProfile.set('username', 'ibnuCoder');
+// userProfile.set('age', 18);
+
+// console.log(userProfile.get('username'));
+// userProfile.set('age', 19);
+// console.log(userProfile.get('age'));
+
+
+// Latihan 4: Set dan Perulangan
+// const mySet = new Set([1, 2, 3, 4, 5]);
+// mySet.add(6);
+// mySet.delete(3);
+
+// for (const value of mySet) {
+//     console.log(value); // Output: 1, 2, 4, 5, 6
+// }
