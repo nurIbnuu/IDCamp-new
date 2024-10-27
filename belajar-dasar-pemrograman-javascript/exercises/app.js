@@ -158,3 +158,60 @@
 // for (const value of mySet) {
 //     console.log(value); // Output: 1, 2, 4, 5, 6
 // }
+
+
+
+// ------
+// Minggu, 27 Oktober 2024
+// 1. Membuat dan Mengakses Properti di Object
+// const book = {
+//   title: 'JavaScript Basic',
+//   author: 'John Doe',
+//   pages: 250
+// }
+// console.log(book.title, book.author, book['pages']);
+
+// const {title, author} = book;
+// console.log(title, author);
+
+// const laptop = {
+//   brand: 'Lenovo',
+//   price: 10_000_000
+// }
+// laptop.price = 8_500_000;
+// console.log(laptop);
+
+// laptop.isAvailable = true;
+// console.log(laptop);
+
+// delete laptop.isAvailable;
+// console.log(laptop);
+
+
+
+// ARRAY
+// const colors = ['red', 'green', 'blue'];
+// console.log(colors);
+
+// console.log(colors[0], colors[2]);
+
+// const numbers = [10, 20, 30, 40, 50];
+// numbers[1] = 25;
+// console.log(numbers);
+
+// numbers.push(60);
+// console.log(numbers);
+
+// const animals = ['cat', 'dog', 'rabbit', 'lion'];
+
+// delete animals[2];
+// console.log(animals);
+
+// animals.splice(2, 1);
+// console.log(animals);
+
+// animals.pop();
+// console.log(animals);
+
+// animals.shift();
+// console.log(animals);
