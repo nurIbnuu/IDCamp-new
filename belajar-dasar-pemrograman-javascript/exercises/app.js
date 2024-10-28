@@ -1,5 +1,5 @@
 // Latihan menjalankan node.js
-// (process.platform);
+// console.log(process.platform);
 // (3 + 8);
 
 // Latihan statement dan expression
@@ -202,7 +202,7 @@
 // numbers.push(60);
 // console.log(numbers);
 
-// const animals = ['cat', 'dog', 'rabbit', 'lion'];
+const animals = ['cat', 'dog', 'rabbit', 'lion'];
 
 // delete animals[2];
 // console.log(animals);
@@ -215,3 +215,50 @@
 
 // animals.shift();
 // console.log(animals);
+
+// animals.unshift('Turtle');
+// console.log(animals);
+
+
+
+
+
+// -----------
+// Senin, 28 Oktober 2024
+
+// Latihan Array Destructuring
+// const today = ['Monday', 30];
+// const [day, date] = today;
+// console.log(day, date);
+
+// const person = ['Ibnu', 'Hubab'];
+// const [fistName, lastName, age = 18] = person;
+// console.log(fistName, lastName, age);
+
+
+
+// Latihan Map
+// const book = new Map()
+// book.set('title', 'JavaScript Library')
+// book.set('author', 'azmutte')
+// book.set(1, 0)
+// book.set('publisher', 'Muamalah Publishing')
+// book.set('year', 2024)
+
+// book.delete('year')
+// console.log(book.get('title'));
+// console.log(book.get('author'));
+// console.log(book.get(1));
+// console.log(book.get('publisher'));
+
+
+// const numbers = new Set([10, 20, 30])
+// for (const number of numbers) {
+//   console.log(number);
+// }
+
+// const colors = new Set(['red', 'green', 'blue'])
+// colors.delete('green')
+// colors.forEach(color =>
+//   console.log(color)
+// )
