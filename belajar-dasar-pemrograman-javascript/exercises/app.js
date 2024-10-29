@@ -262,3 +262,40 @@ const animals = ['cat', 'dog', 'rabbit', 'lion'];
 // colors.forEach(color =>
 //   console.log(color)
 // )
+
+
+// Selasa, 29 Oktober 2024
+// const person = {firstName: 'John', lastName: 'Doe'};
+// const job = {jobTitle: 'Developer', company: 'Tech Corp'};
+// const personWithJob = {...job, ...person};
+// personWithJob.age = 25;
+// console.log(personWithJob);
+
+// const fruits = ['Apple', 'Orange', 'Strawberry'];
+// const vegetables = ['Tomato', 'Carrot', 'Cucumber'];
+// const groceries = [...fruits, ...vegetables, 'Milk'];
+// console.log(groceries);
+
+// 1. Latihan Fungsi Penjumlahan
+// function sumAll(...numbers) {
+//   return numbers.reduce((total, number) => total + number, 0);
+// }
+
+// console.log(sumAll(1, 2, 3, 4)); // Output: 10
+// console.log(sumAll(10, 20, 30)); // Output: 60
+
+// 2. Latihan Fungsi Menyambungkan Kalimat
+// function combineWords(...words) {
+//   return words.join(' ');
+// }
+
+// console.log(combineWords("Hello", "world", "!")); // Output: "Hello world !"
+// console.log(combineWords("JavaScript", "is", "fun")); // Output: "JavaScript is fun"
+
+// 3. Latihan Mencari Nilai Tertinggi
+// function findMax(...numbers) {
+//   return Math.max(...numbers);
+// }
+
+// console.log(findMax(10, 20, 5, 8)); // Output: 20
+// console.log(findMax(1, 7, 3, 6, 9)); // Output: 9
