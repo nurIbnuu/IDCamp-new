@@ -299,3 +299,93 @@ const animals = ['cat', 'dog', 'rabbit', 'lion'];
 
 // console.log(findMax(10, 20, 5, 8)); // Output: 20
 // console.log(findMax(1, 7, 3, 6, 9)); // Output: 9
+
+
+
+// -----------
+// Explore
+// Tentu! Mari kita bahas kode yang telah Anda tulis, baik di `support.mjs` maupun `main.mjs`, secara terperinci.
+
+// ### 1. `support.mjs`
+
+// ```javascript
+// export const API = {
+//   fetch(delay, simulateError = false) {
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//         if (simulateError) {
+//           return reject(new Error(`Error from delay ${delay}`));
+//         }
+//         return resolve(`Data from delay ${delay}`);
+//       }, delay);
+//     });
+//   }
+// };
+
+// export const sampleErrorData = [
+//   { delay: 100, simulateError: false },
+//   { delay: 50, simulateError: true }
+// ];
+
+// export const sampleSuccessData = [
+//   { delay: 100, simulateError: false },
+//   { delay: 50, simulateError: false }
+// ];
+// ```
+
+// #### Penjelasan:
+
+// - **API Object**: 
+//   - Ini adalah objek `API` yang berisi metode `fetch`.
+//   - **Method `fetch`**:
+//     - Menerima dua parameter: `delay` (waktu tunggu dalam milidetik) dan `simulateError` (boolean yang menentukan apakah akan menimbulkan error).
+//     - Mengembalikan Promise yang di-resolve atau di-reject setelah jangka waktu tertentu (`delay`).
+//     - Jika `simulateError` bernilai `true`, Promise akan di-reject dengan pesan error yang sesuai.
+//     - Jika `simulateError` bernilai `false`, Promise akan di-resolve dengan pesan data yang sesuai.
+
+// - **Sample Data**:
+//   - **`sampleErrorData`**: Array objek yang berisi dua item. Item kedua memiliki `simulateError: true`, yang akan menghasilkan error saat di-fetch.
+//   - **`sampleSuccessData`**: Array objek yang serupa tetapi tanpa error, sehingga kedua pemanggilan akan berhasil.
+
+// ### 2. `main.mjs`
+
+// ```javascript
+// import { API, sampleErrorData, sampleSuccessData } from './support.mjs';
+
+// function processData(data) {
+//   return Promise.all(
+//     data.map(item => 
+//       API.fetch(item.delay, item.simulateError).catch(error => {
+//         throw new Error(error.message);
+//       })
+//     )
+//   );
+// }
+
+// processData(sampleErrorData).then(console.log).catch(console.log); // Expected output: "Error from delay 50"
+// processData(sampleSuccessData).then(console.log).catch(console.log); // Expected output: ["Data from delay 100", "Data from delay 50"]
+// ```
+
+// #### Penjelasan:
+
+// - **Import Statement**:
+//   - Mengimpor `API`, `sampleErrorData`, dan `sampleSuccessData` dari `support.mjs`.
+
+// - **Fungsi `processData(data)`**:
+//   - Menerima parameter `data`, yang merupakan array objek yang telah didefinisikan di `support.mjs`.
+//   - Menggunakan `Promise.all()` untuk menjalankan semua pemanggilan `API.fetch` secara bersamaan.
+//   - **`data.map(item => ...)`**: Iterasi melalui setiap item dalam array `data`, memanggil `API.fetch` untuk mendapatkan data dengan menggunakan `delay` dan `simulateError` yang diberikan dalam setiap item.
+//     - Jika `API.fetch` berhasil, hasilnya akan dikumpulkan dalam array.
+//     - Jika terjadi error, `.catch()` akan menangkapnya dan membangkitkan `Error` baru dengan pesan yang sama.
+
+// - **Pemanggilan Fungsi**:
+//   - `processData(sampleErrorData)`: Menguji data yang memiliki error. Mengharapkan output yang berupa pesan error: "Error from delay 50".
+//   - `processData(sampleSuccessData)`: Menguji data yang tidak memiliki error. Mengharapkan output berupa array data yang berhasil: `["Data from delay 100", "Data from delay 50"]`.
+
+// ### Kesimpulan
+
+// - Kode ini memanfaatkan Promise untuk menangani operasi asynchronous, seperti fetching data dengan delay. 
+// - Metode `processData` dengan `Promise.all` memastikan semua fetch dilakukan secara bersamaan, dan error ditangani dengan baik. 
+// - Struktur kode memisahkan logika API dan data sample, sehingga lebih modular dan mudah dikelola.
+
+// Jika ada bagian tertentu yang ingin Anda bahas lebih lanjut, silakan beri tahu!
